@@ -4,7 +4,7 @@ theme: default
 paginate: true
 style: |
   pre code {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 ---
 
@@ -98,6 +98,34 @@ kek        → 1, 7
 | `whitespace` | Tokenize without affecting punctuation     |
 | `keyword`    | Exact-match fields                         |
 | `pattern`    | Custom delimiter-based tokenization        |
+
+---
+
+### Built-in Language Analyzers
+
+**Example:** turkish analyzer
+
+```json
+PUT /turkish
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "default": {
+          "type": "turkish"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text"
+      }
+    }
+  }
+}
+```
 
 ---
 
